@@ -9,13 +9,13 @@ This is a simple helper package to make generating [http://fullcalendar.io](http
 ## Installing
 Require the package with composer using the following command:
 
-    composer require maddhatter/laravel-fullcalendar
+    composer require fypyuhu/laravel-fullcalendar
 
 Or add the following to your composer.json's require section and `composer update`
 
 ```json
 "require": {
-	"maddhatter/laravel-fullcalendar": "~1.0"
+	"fypyuhu/laravel-fullcalendar": "*"
 }
 ```
 
@@ -24,13 +24,13 @@ Or add the following to your composer.json's require section and `composer updat
 Register the service provider in your `app.php` config file:
 
 ```php
-MaddHatter\LaravelFullcalendar\ServiceProvider::class,
+fypyuhu\LaravelFullcalendar\ServiceProvider::class,
 ```
 
 And optionally create an alias:
 
 ```php
-'Calendar' => MaddHatter\LaravelFullcalendar\Facades\Calendar::class,
+'Calendar' => fypyuhu\LaravelFullcalendar\Facades\Calendar::class,
 
 ```
 
@@ -61,7 +61,7 @@ $event = \Calendar::event(
 ```
 #### Implementing `Event` Interface
 
-Alternatively, you can use an existing class and have it implement `MaddHatter\LaravelFullcalendar\Event`. An example of an Eloquent model that implements the `Event` interface:
+Alternatively, you can use an existing class and have it implement `fypyuhu\LaravelFullcalendar\Event`. An example of an Eloquent model that implements the `Event` interface:
 
 ```php
 class EventModel extends Eloquent implements \MaddHatter\LaravelFullcalendar\Event
@@ -122,10 +122,10 @@ class EventModel extends Eloquent implements \MaddHatter\LaravelFullcalendar\Eve
 
 #### `IdentifiableEvent` Interface
 
-If you wish for your existing class to have event IDs, implement `\MaddHatter\LaravelFullcalendar\IdentifiableEvent` instead. This interface extends `\MaddHatter\LaravelFullcalendar\Event` to add a `getId()` method:
+If you wish for your existing class to have event IDs, implement `\fypyuhu\LaravelFullcalendar\IdentifiableEvent` instead. This interface extends `\fypyuhu\LaravelFullcalendar\Event` to add a `getId()` method:
 
 ```php
-class EventModel extends Eloquent implements \MaddHatter\LaravelFullcalendar\IdentifiableEvent
+class EventModel extends Eloquent implements \fypyuhu\LaravelFullcalendar\IdentifiableEvent
 {
 
 	// Implement all Event methods ...
@@ -168,7 +168,7 @@ $event = \Calendar::event(
 
 ```php
 <?php
-class CalendarEvent extends \Illuminate\Database\Eloquent\Model implements \MaddHatter\LaravelFullcalendar\Event
+class CalendarEvent extends \Illuminate\Database\Eloquent\Model implements \fypyuhu\LaravelFullcalendar\Event
 {
 	//...
 
@@ -214,7 +214,7 @@ $events[] = \Calendar::event(
 	'stringEventId' //optionally, you can specify an event ID
 );
 
-$eloquentEvent = EventModel::first(); //EventModel implements MaddHatter\LaravelFullcalendar\Event
+$eloquentEvent = EventModel::first(); //EventModel implements fypyuhu\LaravelFullcalendar\Event
 
 $calendar = \Calendar::addEvents($events) //add an array with addEvents
     ->addEvent($eloquentEvent, [ //set custom color fo this event
