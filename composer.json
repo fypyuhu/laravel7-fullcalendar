@@ -8,9 +8,7 @@
             "email": "muhammad.usama.riaz@gmail.com"
         }
     ],
-    "require": {
-        "php": "^7.2.5"
-    },
+    "require": {    },
     "autoload": {
         "psr-0": {
             "fypyuhu\\LaravelFullcalendar": "src/"
